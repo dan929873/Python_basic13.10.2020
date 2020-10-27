@@ -9,3 +9,13 @@ try:
     print(f'{script_name}\nЗарплата: {salary}')
 except ValueError:
     print("Введены некоректные данные")
+
+
+
+from sys import argv
+_, output, rate, bonus, *_ = argv
+try:
+    salary = float(output) * float(rate) + float(bonus)
+    print(f'{script_name}\nЗарплата: {salary}')
+except ValueError:
+    print("Введены некоректные данные")

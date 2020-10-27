@@ -8,3 +8,9 @@ from HW.hw04.my_func import my_enumerate
 list_task = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55]
 my_list = [el for num, el in my_enumerate(list_task[1:], 1) if el > list_task[num - 1]]
 print(my_list)
+
+
+# 'inf' -- бесконечность
+# assert -- поднимает ошибку если указано ошибочное
+# @log -- ?
+# __name__ системная переменная
