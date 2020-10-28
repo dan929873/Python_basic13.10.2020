@@ -10,8 +10,3 @@ if __name__ == "__main__":
                 my_line = input("Введите строку: ")
     except IOError:
         print("Произошла ошибка ввода-вывода!")
-
-
-
-
-
