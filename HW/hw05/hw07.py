@@ -11,3 +11,25 @@
 #
 # [{"firm_1": 5000, "firm_2": 3000, "firm_3": 1000}, {"average_profit": 2000}]
 # Подсказка: использовать менеджеры контекста.
+
+import json
+
+if __name__ == '__main__':
+    with open("hw07_business.txt", "r", encoding='UTF-8') as my_f:
+        content = my_f.readlines()
+        total_profit = 0
+        result = [{}, {}]
+        num_of_firm = 0
+        for line in content:
+            word = line.split(' ')
+            key = word[0]
+            profit = int(word[2]) - int(word[3])
+            if profit > 0:
+                total_profit += profit
+                num_of_firm += 1
+            result[0][key] = profit
+            print(1)
+        result[1]["average_profit"] = total_profit / num_of_firm
+        with open ("hw07.json", "w") as my_js_w:
+            json.dump(result, my_js_w)
+
