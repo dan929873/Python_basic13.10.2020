@@ -12,35 +12,33 @@ from abc import ABC, abstractmethod
 class Clothes:
     def __init__(self, m_name):
         self.name = m_name
-
+    @property
     @abstractmethod
-    def size_coat(self):
-        """возвращает размер пальто"""
-    @abstractmethod
-    def size_suit(self):
-        """возвращает размер костюма"""
-
-    @classmethod
-    def expense(cls):
-        return sum(cls.size_coat()) + sum(cls.size_suit())
-
+    def size(self) -> float:
+        pass
+        """возвращает расход ткани"""
 
 class Coat(Clothes):
-    def __init__(self,size):
-        super(Coat, self).__init__(self.name)
-        self.m_size = size
+    def __init__(self, name, size):
+        super(Coat, self).__init__(name)
+        self.__m_size = size
 
-    def size_coat(self):
-        return (self.m_size/6.5 + 0.5)
+    @property
+    def size(self) -> float:
+        return self.__m_size/6.5 + 0.5
 
 
 class Suit(Clothes):
-    def __init__(self, size):
-        super().__init__(self.name)
-        self.m_size = size
+    def __init__(self, name: str, size: float):
+        super().__init__(name)
+        self.__m_size = size
 
-    def size_suit(self):
-        return (2 * self.m_size + 0.3)
+    @property
+    def size(self) -> float:
+        return 2 * self.__m_size + 0.3
 
-my_suit = Suit('summer_style')
+my_suit = Suit("summer", 28)
+print(f'Необходимо ткани на костюм {my_suit.name}: {my_suit.size}')
 
+my_coat = Coat("fall", 1.80)
+print(f'Необходимо ткани на пальто {my_coat.name}: {my_coat.size}')
